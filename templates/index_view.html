@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<ul id="cate_box" class="lf">
+    {% for type in type_list %}
+{#        url标签#}
+{#        路由地址#}
+{#        path('',views.index,name='index')#}
+{#        index是url的参数name的值#}
+{#        <a href="{% url 'index' %}" target="_blank"> 首页 </a>#}
+
+{#        生成带变量的url地址#}
+{#        path('search/<int:page>.html',views.search,name='search')#}
+{#        search是urlname的值，1是url的变量page的值#}
+{#        <a href="{% url 'search' 1 %}" target="_blank">第1页</a>#}
+
+        <li>
+            <h3><a href="#">{{ type.type }}</a></h3>
+            <p>
+                {% for name in name_list %}
+                    {% if name.type == type.type %}
+                        <span>{{ name.name }}</span>
+
+                    {% endif %}
+                {% endfor %}
+        </li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>
